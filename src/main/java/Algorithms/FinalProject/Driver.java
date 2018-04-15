@@ -31,15 +31,15 @@ public class Driver {
 
         public static List<City> getBaseOrder(int phenoTypeLength) 
         {
-        //    Random r = new Random();
-            double min = -100;
+  
+        		double min = -100;
             double max = 100;
             return IntStream.range(0, phenoTypeLength)
                     .mapToObj(index -> {
-                        double x = ThreadLocalRandom.current().nextDouble(min, max + 1);
-                        double y = ThreadLocalRandom.current().nextDouble(min, max + 1);
+                        double a = ThreadLocalRandom.current().nextDouble(min, max + 1);
+                        double b = ThreadLocalRandom.current().nextDouble(min, max + 1);
 
-                        City city = new City(x, y, "City"+index , index);
+                        City city = new City(a, b, "City"+index , index);
                         return city;
                     }).collect(Collectors.toList());
 

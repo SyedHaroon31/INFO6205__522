@@ -12,13 +12,13 @@ import java.util.List;
 public class TravelPath {
 
     private int memberId;
-    private List<City> traversalPath;
+    private List<City> travelPath;
     private double distance;
     private double fitnessScore;
 
     public TravelPath(int memberId) {
         this.memberId = memberId;
-        this.traversalPath = new ArrayList<>();
+        this.travelPath = new ArrayList<>();
     }
 
     public int getMemberId() {
@@ -30,15 +30,15 @@ public class TravelPath {
     }
 
     public TravelPath(List<City> traversalOrder) {
-        this.traversalPath = traversalOrder;
+        this.travelPath = traversalOrder;
     }
 
     public List<City> getTraversalPath() {
-        return traversalPath;
+        return travelPath;
     }
 
     public void setTraversalPath(List<City> traversalPath) {
-        this.traversalPath = traversalPath;
+        this.travelPath = traversalPath;
     }
 
     public double getDistance() {
@@ -61,9 +61,9 @@ public class TravelPath {
         StringBuilder builder = new StringBuilder();
         builder.append("<Order " + this.memberId + " : ");
 
-        for (int i = 0; i < this.traversalPath.size(); i++) {
-            builder.append(this.traversalPath.get(i).toString());
-            if (i != this.traversalPath.size() - 1) {
+        for (int i = 0; i < this.travelPath.size(); i++) {
+            builder.append(this.travelPath.get(i).toString());
+            if (i != this.travelPath.size() - 1) {
                 builder.append("->");
             }
         }
@@ -79,7 +79,7 @@ public class TravelPath {
     {
 
         double sum = 0.0;
-        for (int i = 0; i <= traversalPath.size()-1 ; i++) 
+        for (int i = 0; i <= travelPath.size()-1 ; i++) 
         {
             this.distance = totalDistance(i);
             sum += distance;
@@ -89,15 +89,15 @@ public class TravelPath {
 
     public double totalDistance(int i) {
 
-        City first = this.traversalPath.get(i);
+        City first = this.travelPath.get(i);
         
         City second = null;
-        if (i != this.traversalPath.size() - 1) {
+        if (i != this.travelPath.size() - 1) {
 
-            second = this.traversalPath.get(i + 1);
+            second = this.travelPath.get(i + 1);
 
         } else {
-            second = this.traversalPath.get(0);
+            second = this.travelPath.get(0);
         }
         double distance = distanceBetweenCities(first, second);
         return distance;

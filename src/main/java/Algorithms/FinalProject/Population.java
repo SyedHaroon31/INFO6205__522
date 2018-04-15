@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import java.util.Random;
 
 
@@ -27,21 +26,12 @@ public class Population {
         public int compare(Genotype gA, Genotype gB) {
 
             double fitnessA = gA.getPhenotype().getFitnessScore();
-//            System.out.println("A" + fitnessA);
             double fitnessB = gB.getPhenotype().getFitnessScore();
-//            System.out.println("B" + fitnessB);
-            //ascending order
-
             return gB.compareTo(gA);
+        }};
 
-            //descending order
-            //return fruitName2.compareTo(fruitName1);
-        }
-
-    };
-
-    public Population(double cutoff,
-            List<City> baseOrder) {
+    public Population(double cutoff,List<City> baseOrder) 
+    {
         this.gtList = new ArrayList<>();
         this.cutoff = cutoff;
         this.firstOrder = baseOrder;
@@ -56,25 +46,25 @@ public class Population {
         this.gtList = gtList;
     }
 
-    public void initPopulation(int populationSize, int genotypeLength,
-            int phenoTypeLength) {
+    public void initPopulation(int populationSize, int genotypeLength,int phenoTypeLength) {
 
-       
-
-        for (int i = 0; i < populationSize; i++) {
+        for (int i = 0; i < populationSize; i++) 
+        {
             Genotype g = new Genotype(phenoTypeLength, i);
             this.gtList.add(g);
         }
 
         String[] geneBaseOrder = new String[phenoTypeLength];
 
-        for (int i = 0; i < firstOrder.size(); i++) {
+        for (int i = 0; i < firstOrder.size(); i++)
+        {
 
             String p = String.format("%4s", Integer.toBinaryString(i)).replace(' ', '0');
             geneBaseOrder[i] = p;
         }
 
-        for (int i = 0; i < gtList.size(); i++) {
+        for (int i = 0; i < gtList.size(); i++)
+        {
             Genotype gt = gtList.get(i);
             String[] arr = new String[geneBaseOrder.length];
             arr = Arrays.copyOf(geneBaseOrder, geneBaseOrder.length);

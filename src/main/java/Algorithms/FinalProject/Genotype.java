@@ -39,25 +39,23 @@ public class Genotype implements Comparable<Genotype>{
             this.representation = representation;
         }
 
-        public void generatePhenotype(Genotype gt, List<City> baseOrder) {
+        public void generatePhenotype(Genotype gt, List<City> baseOrder) 
+        {
 
             List<City>newOrder= new ArrayList<City>();
-    //        representation=gt.getRepresentation();
-              for(String s:gt.getRepresentation()){
-
+              for(String s:gt.getRepresentation())
+              {
                  City e= baseOrder.get(Integer.parseInt(s,2));
-    //             System.out.println(e.getName());
-                  newOrder.add(e);
-
-                  }
+                 newOrder.add(e);
+              }
 
                gt.getPhenotype().setTraversalPath(newOrder);
                gt.getPhenotype().fitnessScore();
-              }
+          }
 
 
     
-    //compare Genotype
+    //compare Genotype Fitness
     public int compareTo(Genotype gt) {
         
         if(gt.getPhenotype().getFitnessScore() < this.phenotype.getFitnessScore())return 1;

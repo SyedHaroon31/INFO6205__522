@@ -7,7 +7,7 @@ package Algorithms.FinalProject;
 
 public class City {
 
-    //Co-ordinates for the City
+    		//Co-ordinates for the City
         private double latitude;
         private double longitude;
         private String name;
@@ -55,7 +55,6 @@ public class City {
         @Override
         public String toString() {
             return "City{" +
-                    "name='" + name + '\'' +
-                    '}';
+                    "name='" + name + '\'' + '}';
         }
 }
