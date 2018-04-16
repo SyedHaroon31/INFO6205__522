@@ -55,7 +55,7 @@ public class Genotype implements Comparable<Genotype>{
 
 
     
-    //compare Genotype Fitness
+    //compare Genotype Fitness and sort
     public int compareTo(Genotype gt) {
         
         if(gt.getPhenotype().getFitnessScore() < this.phenotype.getFitnessScore())return 1;

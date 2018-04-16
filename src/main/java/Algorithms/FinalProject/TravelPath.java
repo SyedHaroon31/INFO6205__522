@@ -16,6 +16,9 @@ public class TravelPath {
     private double distance;
     private double fitnessScore;
 
+    public TravelPath() {
+    	
+    }
     public TravelPath(int memberId) {
         this.memberId = memberId;
         this.travelPath = new ArrayList<>();
@@ -75,7 +78,7 @@ public class TravelPath {
         return builder.toString();
     }
 
-    public void fitnessScore() 
+    public double fitnessScore() 
     {
 
         double sum = 0.0;
@@ -85,6 +88,7 @@ public class TravelPath {
             sum += distance;
         }
         this.fitnessScore = 1 / sum;
+        return fitnessScore;
     }
 
     public double totalDistance(int i) {
